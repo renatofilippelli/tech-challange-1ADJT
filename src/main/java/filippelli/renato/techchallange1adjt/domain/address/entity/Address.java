@@ -1,5 +1,6 @@
 package filippelli.renato.techchallange1adjt.domain.address.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.GeneratedValue;
@@ -10,7 +11,9 @@ import java.util.Objects;
 import java.util.UUID;
 @Entity
 @Table(name="address")
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Address {
+
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
