@@ -1,7 +1,6 @@
 package filippelli.renato.techchallange1adjt.domain.address.controller;
 
 import filippelli.renato.techchallange1adjt.domain.address.dto.AddressDTO;
-import filippelli.renato.techchallange1adjt.domain.address.entity.Address;
 import filippelli.renato.techchallange1adjt.domain.address.service.AddressService;
 import filippelli.renato.techchallange1adjt.domain.address.service.exception.DefaultError;
 import io.swagger.v3.oas.annotations.Operation;
@@ -32,12 +31,10 @@ public class AddressController {
     @Autowired
     private AddressService addressService;
 
-    @Operation(summary = "teste", method = "POST")
+    @Operation(summary = "Create new Address", method = "POST")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "201", description = "Created"),
             @ApiResponse(responseCode = "400", description = "Bad Request",
-                    content = {@Content(schema = @Schema(implementation = DefaultError.class))}),
-            @ApiResponse(responseCode = "422", description = "Unprocessable Entity",
                     content = {@Content(schema = @Schema(implementation = DefaultError.class))}),
             @ApiResponse(responseCode = "500", description = "Internal Server Error",
                     content = {@Content(schema = @Schema(implementation = DefaultError.class))})
@@ -60,8 +57,6 @@ public class AddressController {
             @ApiResponse(responseCode = "200", description = "OK"),
             @ApiResponse(responseCode = "400", description = "Bad Request",
                     content = {@Content(schema = @Schema(implementation = DefaultError.class))}),
-            @ApiResponse(responseCode = "422", description = "Unprocessable Entity",
-                    content = {@Content(schema = @Schema(implementation = DefaultError.class))}),
             @ApiResponse(responseCode = "500", description = "Internal Server Error",
                     content = {@Content(schema = @Schema(implementation = DefaultError.class))})
     })
@@ -72,12 +67,10 @@ public class AddressController {
                 .body(addressService.findAll());
     }
 
-    @Operation(summary = "Get by ID", method = "GET")
+    @Operation(summary = "Get one by ID", method = "GET")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "OK"),
             @ApiResponse(responseCode = "400", description = "Bad Request",
-                    content = {@Content(schema = @Schema(implementation = DefaultError.class))}),
-            @ApiResponse(responseCode = "422", description = "Unprocessable Entity",
                     content = {@Content(schema = @Schema(implementation = DefaultError.class))}),
             @ApiResponse(responseCode = "500", description = "Internal Server Error",
                     content = {@Content(schema = @Schema(implementation = DefaultError.class))})
