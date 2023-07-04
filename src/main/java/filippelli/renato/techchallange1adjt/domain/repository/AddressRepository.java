@@ -1,6 +1,6 @@
-package filippelli.renato.techchallange1adjt.domain.address.repository;
+package filippelli.renato.techchallange1adjt.domain.repository;
 
-import filippelli.renato.techchallange1adjt.domain.address.entity.Address;
+import filippelli.renato.techchallange1adjt.domain.entity.Address;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import java.util.UUID;

@@ -1,10 +1,10 @@
-package filippelli.renato.techchallange1adjt.domain.address.dto;
+package filippelli.renato.techchallange1adjt.domain.dto;
 
-import filippelli.renato.techchallange1adjt.domain.address.entity.Address;
+import filippelli.renato.techchallange1adjt.domain.entity.Address;
 
 import java.util.UUID;
 
-public class AddressDTO {
+public class AddressRequest {
     private UUID id;
     private String street;
     private Integer number;
@@ -12,9 +12,9 @@ public class AddressDTO {
     private String city;
     private String state;
 
-    public AddressDTO(){}
+    public AddressRequest(){}
 
-    public AddressDTO(UUID id, String street, Integer number, String district, String city, String state) {
+    public AddressRequest(UUID id, String street, Integer number, String district, String city, String state) {
         this.id = id;
         this.street = street;
         this.number = number;
@@ -23,7 +23,7 @@ public class AddressDTO {
         this.state = state;
     }
 
-    public AddressDTO(Address address){
+    public AddressRequest(Address address){
         this.id = address.getId();
         this.street = address.getStreet();
         this.number = address.getNumber();

@@ -1,4 +1,4 @@
-package filippelli.renato.techchallange1adjt.domain.address.service.exception;
+package filippelli.renato.techchallange1adjt.domain.service.exception;
 
 import java.time.Instant;
 

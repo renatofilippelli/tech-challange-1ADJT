@@ -1,15 +1,14 @@
-package filippelli.renato.techchallange1adjt.domain.address.service;
+package filippelli.renato.techchallange1adjt.domain.service;
 
-import filippelli.renato.techchallange1adjt.domain.address.dto.AddressDTO;
-import filippelli.renato.techchallange1adjt.domain.address.entity.Address;
-import filippelli.renato.techchallange1adjt.domain.address.repository.AddressRepository;
-import filippelli.renato.techchallange1adjt.domain.address.service.exception.ControllerNotFoundException;
+import filippelli.renato.techchallange1adjt.domain.dto.AddressRequest;
+import filippelli.renato.techchallange1adjt.domain.entity.Address;
+import filippelli.renato.techchallange1adjt.domain.repository.AddressRepository;
+import filippelli.renato.techchallange1adjt.domain.service.exception.ControllerNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Optional;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
@@ -19,25 +18,25 @@ public class AddressService {
     @Autowired
     private AddressRepository r;
 
-    public AddressDTO save(AddressDTO address){
+    public AddressRequest save(AddressRequest address){
         Address e = new Address();
         e.setCity(address.getCity());
         e.setDistrict(address.getDistrict());
         e.setNumber(address.getNumber());
         e.setState(address.getState());
         e.setStreet(address.getStreet());
-        return new AddressDTO(r.save(e));
+        return new AddressRequest(r.save(e));
     }
 
-    public Collection<AddressDTO> findAll(){
+    public Collection<AddressRequest> findAll(){
         var address = r.findAll();
         return address
                 .stream()
-                .map(a -> new AddressDTO(a)).collect(Collectors.toCollection(ArrayList::new));
+                .map(AddressRequest::new).collect(Collectors.toCollection(ArrayList::new));
     }
 
-    public AddressDTO findById(UUID id) {
+    public AddressRequest findById(UUID id) {
         var address = r.findById(id).orElseThrow(() -> new ControllerNotFoundException("not found"));
-        return new AddressDTO(address);
+        return new AddressRequest(address);
     }
 }
