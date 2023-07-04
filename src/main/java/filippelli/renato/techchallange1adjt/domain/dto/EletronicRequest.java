@@ -1,72 +1,43 @@
 package filippelli.renato.techchallange1adjt.domain.dto;
 
-import filippelli.renato.techchallange1adjt.domain.entity.Eletronic;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
+import jakarta.validation.constraints.Size;
 
 public class EletronicRequest {
+
+    private static final String FIELD_MANDATORY = "field is mandatory.";
+    private static final String FIELD_GREATER_THAN_ZERO = "field must be greater than zero.";
+    private static final String FIELD_SIZE_TOO_LONG = "field size must be less than 255 characters";
+    @NotBlank(message = FIELD_MANDATORY)
+    @Size(max = 255, message = FIELD_SIZE_TOO_LONG)
     private String name;
+    @NotBlank(message = FIELD_MANDATORY)
+    @Size(max = 255, message = FIELD_SIZE_TOO_LONG)
     private String model;
-    private String power;
-    private String voltage;
+    @NotNull(message = FIELD_MANDATORY)
+    @Positive(message = FIELD_GREATER_THAN_ZERO)
+    private Integer power;
+    @NotNull(message = FIELD_MANDATORY)
+    @Positive(message = FIELD_GREATER_THAN_ZERO)
+    private Integer voltage;
+    @Size(max = 255, message = FIELD_SIZE_TOO_LONG)
     private String otherRelevantInformation;
-
-    public EletronicRequest() {}
-
-    public EletronicRequest(
-            String name, String model, String power, String voltage, String otherRelevantInformation) {
-        this.name = name;
-        this.model = model;
-        this.power = power;
-        this.voltage = voltage;
-        this.otherRelevantInformation = otherRelevantInformation;
-    }
-
-    public EletronicRequest(Eletronic ea) {
-        this.name = ea.getName();
-        this.model = ea.getModel();
-        this.power = ea.getPower();
-        this.voltage = ea.getVoltage();
-        this.otherRelevantInformation = ea.getOtherRelevantInformation();
-    }
-
-
 
     public String getName() {
         return name;
     }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public String getModel() {
         return model;
     }
-
-    public void setModel(String model) {
-        this.model = model;
-    }
-
-    public String getPower() {
+    public Integer getPower() {
         return power;
     }
-
-    public void setPower(String power) {
-        this.power = power;
-    }
-
-    public String getVoltage() {
+    public Integer getVoltage() {
         return voltage;
     }
-
-    public void setVoltage(String voltage) {
-        this.voltage = voltage;
-    }
-
     public String getOtherRelevantInformation() {
         return otherRelevantInformation;
-    }
-
-    public void setOtherRelevantInformation(String otherRelevantInformation) {
-        this.otherRelevantInformation = otherRelevantInformation;
     }
 }

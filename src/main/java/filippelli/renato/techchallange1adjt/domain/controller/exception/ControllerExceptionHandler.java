@@ -6,12 +6,15 @@ import filippelli.renato.techchallange1adjt.domain.service.exception.DefaultErro
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.FieldError;
+import org.springframework.web.bind.MethodArgumentNotValidException;
+import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.RestControllerAdvice;
+import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 
 import java.time.Instant;
 
-@RestControllerAdvice
+@ControllerAdvice
 public class ControllerExceptionHandler {
     private DefaultError err = new DefaultError();
 
@@ -20,7 +23,7 @@ public class ControllerExceptionHandler {
         HttpStatus status = HttpStatus.NOT_FOUND;
         err.setTimestamp(Instant.now());
         err.setStatus(status.value());
-        err.setError("entity not found");
+        err.setError("Entity not found");
         err.setMessage(e.getMessage());
         err.setPath(r.getRequestURI());
         return ResponseEntity.status(status).body(this.err);
@@ -35,5 +38,36 @@ public class ControllerExceptionHandler {
         err.setPath(r.getRequestURI());
         return ResponseEntity.status(status).body(this.err);
     }
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public ResponseEntity<FormValidation> validation(MethodArgumentNotValidException exception, HttpServletRequest request) {
+        HttpStatus status = HttpStatus.BAD_REQUEST;
+        FormValidation formValidation = new FormValidation();
+        formValidation.setTimestamp(Instant.now());
+        formValidation.setStatus(status.value());
+        formValidation.setError("Validation Error");
+        formValidation.setMessage(exception.getMessage());
+        formValidation.setPath(request.getRequestURI());
 
+        for (FieldError field: exception.getBindingResult().getFieldErrors()) {
+            formValidation.addMessages(field.getField(), field.getDefaultMessage());
+        }
+
+        return ResponseEntity.status(status).body(formValidation);
+    }
+
+    @ExceptionHandler(MethodArgumentTypeMismatchException.class)
+    public ResponseEntity<FormValidation> validation(MethodArgumentTypeMismatchException exception, HttpServletRequest request) {
+        HttpStatus status = HttpStatus.BAD_REQUEST;
+        FormValidation formValidation = new FormValidation();
+        formValidation.setTimestamp(Instant.now());
+        formValidation.setStatus(status.value());
+        formValidation.setError("Invalid UUID");
+        formValidation.setMessage(exception.getMessage());
+        formValidation.setPath(request.getRequestURI());
+
+        formValidation.addMessages(exception.getName(),
+                "Should be of type " + exception.getRequiredType().getName());
+
+        return ResponseEntity.status(status).body(formValidation);
+    }
 }

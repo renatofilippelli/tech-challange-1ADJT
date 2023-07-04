@@ -10,21 +10,21 @@ import java.util.Objects;
 import java.util.UUID;
 
 @Entity
-@Table(name="eletronic_appliance")
+@Table(name="eletronic")
 public class Eletronic {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
     private String name;
     private String model;
-    private String power;
-    private String voltage;
+    private Integer power;
+    private Integer voltage;
     private String otherRelevantInformation;
 
     public Eletronic(){}
 
     public Eletronic(
-            String name, String model, String power, String voltage, String otherRelevantInformation) {
+            String name, String model, Integer power, Integer voltage, String otherRelevantInformation) {
         this.id = UUID.randomUUID();
         this.name = name;
         this.model = model;
@@ -52,8 +52,8 @@ public class Eletronic {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", model='" + model + '\'' +
-                ", power='" + power + '\'' +
-                ", voltage='" + voltage + '\'' +
+                ", power=" + power +
+                ", voltage=" + voltage +
                 ", otherRelevantInformation='" + otherRelevantInformation + '\'' +
                 '}';
     }
@@ -61,6 +61,7 @@ public class Eletronic {
     public UUID getId() {
         return id;
     }
+
 
     public String getName() {
         return name;
@@ -78,19 +79,19 @@ public class Eletronic {
         this.model = model;
     }
 
-    public String getPower() {
+    public Integer getPower() {
         return power;
     }
 
-    public void setPower(String power) {
+    public void setPower(Integer power) {
         this.power = power;
     }
 
-    public String getVoltage() {
+    public Integer getVoltage() {
         return voltage;
     }
 
-    public void setVoltage(String voltage) {
+    public void setVoltage(Integer voltage) {
         this.voltage = voltage;
     }
 

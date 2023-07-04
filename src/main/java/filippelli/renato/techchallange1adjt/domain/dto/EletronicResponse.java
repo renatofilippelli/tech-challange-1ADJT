@@ -10,14 +10,14 @@ public class EletronicResponse {
     private UUID id;
     private String name;
     private String model;
-    private String power;
-    private String voltage;
+    private Integer power;
+    private Integer voltage;
     private String otherRelevantInformation;
 
     public EletronicResponse() {}
 
     public EletronicResponse(
-            UUID id, String name, String model, String power, String voltage, String otherRelevantInformation) {
+            UUID id, String name, String model, Integer power, Integer voltage, String otherRelevantInformation) {
         this.id = id;
         this.name = name;
         this.model = model;
@@ -59,19 +59,19 @@ public class EletronicResponse {
         this.model = model;
     }
 
-    public String getPower() {
+    public Integer getPower() {
         return power;
     }
 
-    public void setPower(String power) {
+    public void setPower(Integer power) {
         this.power = power;
     }
 
-    public String getVoltage() {
+    public Integer getVoltage() {
         return voltage;
     }
 
-    public void setVoltage(String voltage) {
+    public void setVoltage(Integer voltage) {
         this.voltage = voltage;
     }
 
