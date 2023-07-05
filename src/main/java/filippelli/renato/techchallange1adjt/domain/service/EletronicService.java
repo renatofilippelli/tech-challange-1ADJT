@@ -26,9 +26,7 @@ public class EletronicService {
         e.setPower(dto.getPower());
         e.setVoltage(dto.getVoltage());
         e.setOtherRelevantInformation(dto.getOtherRelevantInformation());
-        var es = r.save(e);
-
-        return new EletronicResponse(es);
+        return new EletronicResponse(r.save(e));
     }
 
     public Collection<EletronicResponse> findAll() {

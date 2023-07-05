@@ -1,45 +1,47 @@
 package filippelli.renato.techchallange1adjt.domain.dto;
 
-import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Positive;
+import jakarta.validation.constraints.Past;
 import jakarta.validation.constraints.Size;
-import org.hibernate.validator.constraints.Range;
 
-public class EletronicRequest {
+import java.time.LocalDate;
 
+public class PersonRequest {
     private static final String FIELD_MANDATORY = "field is mandatory.";
-    private static final String FIELD_GREATER_THAN_ZERO = "field must be greater than zero.";
     private static final String FIELD_SIZE_TOO_LONG = "field size must be less than 255 characters";
-    @NotBlank(message = FIELD_MANDATORY)
+
+    @NotNull(message = FIELD_MANDATORY)
     @Size(max = 255, message = FIELD_SIZE_TOO_LONG)
     private String name;
-    @NotBlank(message = FIELD_MANDATORY)
+    @NotNull(message = FIELD_MANDATORY)
+    @Past
+    private LocalDate birthdate;
+    @NotNull(message = FIELD_MANDATORY)
     @Size(max = 255, message = FIELD_SIZE_TOO_LONG)
-    private String model;
+    private String gender;
     @NotNull(message = FIELD_MANDATORY)
-    @Positive(message = FIELD_GREATER_THAN_ZERO)
-    @Range(min = 1, max = Integer.MAX_VALUE)
-    private Integer power;
+    @Size(max = 255, message = FIELD_SIZE_TOO_LONG)
+    private String kinship;
     @NotNull(message = FIELD_MANDATORY)
-    @Positive(message = FIELD_GREATER_THAN_ZERO)
-    @Range(min = 1, max = Integer.MAX_VALUE)
-    private Integer voltage;
     @Size(max = 255, message = FIELD_SIZE_TOO_LONG)
     private String otherRelevantInformation;
 
     public String getName() {
         return name;
     }
-    public String getModel() {
-        return model;
+
+    public LocalDate getBirthdate() {
+        return birthdate;
     }
-    public Integer getPower() {
-        return power;
+
+    public String getGender() {
+        return gender;
     }
-    public Integer getVoltage() {
-        return voltage;
+
+    public String getKinship() {
+        return kinship;
     }
+
     public String getOtherRelevantInformation() {
         return otherRelevantInformation;
     }

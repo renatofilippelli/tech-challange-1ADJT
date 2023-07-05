@@ -1,8 +1,8 @@
 package filippelli.renato.techchallange1adjt.domain.controller;
 
-import filippelli.renato.techchallange1adjt.domain.dto.AddressRequest;
-import filippelli.renato.techchallange1adjt.domain.dto.AddressResponse;
-import filippelli.renato.techchallange1adjt.domain.service.AddressService;
+import filippelli.renato.techchallange1adjt.domain.dto.PersonRequest;
+import filippelli.renato.techchallange1adjt.domain.dto.PersonResponse;
+import filippelli.renato.techchallange1adjt.domain.service.PersonService;
 import filippelli.renato.techchallange1adjt.domain.service.exception.DefaultError;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -13,12 +13,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
@@ -26,14 +21,14 @@ import java.util.Collection;
 import java.util.UUID;
 
 @RestController
-@RequestMapping(value = "/adresses", produces = {"application/json"})
-@Tag(name = "adresses")
-public class AddressController {
+@RequestMapping(value = "/persons", produces = {"application/json"})
+@Tag(name = "persons")
+public class PersonController {
 
     @Autowired
-    private AddressService service;
+    private PersonService service;
 
-    @Operation(summary = "Create new Address", method = "POST")
+    @Operation(summary = "Create new person", method = "POST")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "201", description = "Created"),
             @ApiResponse(responseCode = "400", description = "Bad Request",
@@ -42,19 +37,19 @@ public class AddressController {
                     content = {@Content(schema = @Schema(implementation = DefaultError.class))})
     })
     @PostMapping
-    public ResponseEntity<AddressResponse> save(@Valid @RequestBody AddressRequest address) {
-        var addressSaved = service.save(address);
+    public ResponseEntity<PersonResponse> save(@RequestBody @Valid PersonRequest dto) {
+        var personSaved = service.save(dto);
         URI uri = ServletUriComponentsBuilder
                 .fromCurrentRequest()
                 .path("/{id}")
-                .buildAndExpand((addressSaved.getId()))
+                .buildAndExpand((personSaved.getId()))
                 .toUri();
         return ResponseEntity
                 .created(uri)
-                .body(addressSaved);
+                .body(personSaved);
     }
 
-    @Operation(summary = "List all adresses", method = "GET")
+    @Operation(summary = "List all persons", method = "GET")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "OK"),
             @ApiResponse(responseCode = "400", description = "Bad Request",
@@ -63,13 +58,13 @@ public class AddressController {
                     content = {@Content(schema = @Schema(implementation = DefaultError.class))})
     })
     @GetMapping
-    public ResponseEntity<Collection<AddressResponse>> findAll() {
+    public ResponseEntity<Collection<PersonResponse>> findAll() {
         return ResponseEntity
                 .ok()
                 .body(service.findAll());
     }
 
-    @Operation(summary = "List one address by ID", method = "GET")
+    @Operation(summary = "List one person by ID", method = "GET")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "OK"),
             @ApiResponse(responseCode = "400", description = "Bad Request",
@@ -78,7 +73,7 @@ public class AddressController {
                     content = {@Content(schema = @Schema(implementation = DefaultError.class))})
     })
     @GetMapping("/{id}")
-    public ResponseEntity<AddressResponse> findById(@PathVariable UUID id) {
+    public ResponseEntity<PersonResponse> findById(@PathVariable UUID id) {
         return ResponseEntity
                 .ok()
                 .body(service.findById(id));

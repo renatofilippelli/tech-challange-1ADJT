@@ -1,82 +1,51 @@
 package filippelli.renato.techchallange1adjt.domain.dto;
 
 import filippelli.renato.techchallange1adjt.domain.entity.Address;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Positive;
+import jakarta.validation.constraints.Size;
+import org.hibernate.validator.constraints.Range;
 
 import java.util.UUID;
 
 public class AddressRequest {
-    private UUID id;
+    private static final String FIELD_MANDATORY = "field is mandatory.";
+    private static final String FIELD_GREATER_THAN_ZERO = "field must be greater than zero.";
+    private static final String FIELD_SIZE_TOO_LONG = "field size must be less than 255 characters";
+    @NotBlank(message = FIELD_MANDATORY)
+    @Size(max = 255, message = FIELD_SIZE_TOO_LONG)
     private String street;
+    @NotBlank(message = FIELD_MANDATORY)
+    @Positive(message = FIELD_GREATER_THAN_ZERO)
+    @Range(min = 1, max = Integer.MAX_VALUE)
     private Integer number;
+    @NotBlank(message = FIELD_MANDATORY)
+    @Size(max = 255, message = FIELD_SIZE_TOO_LONG)
     private String district;
+    @NotBlank(message = FIELD_MANDATORY)
+    @Size(max = 255, message = FIELD_SIZE_TOO_LONG)
     private String city;
+    @NotBlank(message = FIELD_MANDATORY)
+    @Size(max = 255, message = FIELD_SIZE_TOO_LONG)
     private String state;
-
-    public AddressRequest(){}
-
-    public AddressRequest(UUID id, String street, Integer number, String district, String city, String state) {
-        this.id = id;
-        this.street = street;
-        this.number = number;
-        this.district = district;
-        this.city = city;
-        this.state = state;
-    }
-
-    public AddressRequest(Address address){
-        this.id = address.getId();
-        this.street = address.getStreet();
-        this.number = address.getNumber();
-        this.district = address.getDistrict();
-        this.city = address.getCity();
-        this.state = address.getState();
-    }
-
-    public UUID getId() {
-        return id;
-    }
-
-    public void setId(UUID id) {
-        this.id = id;
-    }
 
     public String getStreet() {
         return street;
-    }
-
-    public void setStreet(String street) {
-        this.street = street;
     }
 
     public Integer getNumber() {
         return number;
     }
 
-    public void setNumber(Integer number) {
-        this.number = number;
-    }
-
     public String getDistrict() {
         return district;
-    }
-
-    public void setDistrict(String district) {
-        this.district = district;
     }
 
     public String getCity() {
         return city;
     }
 
-    public void setCity(String city) {
-        this.city = city;
-    }
-
     public String getState() {
         return state;
-    }
-
-    public void setState(String state) {
-        this.state = state;
     }
 }
