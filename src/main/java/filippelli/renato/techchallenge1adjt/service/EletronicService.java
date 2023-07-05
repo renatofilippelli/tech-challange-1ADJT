@@ -1,10 +1,10 @@
-package filippelli.renato.techchallenge1adjt.domain.service;
+package filippelli.renato.techchallenge1adjt.service;
 
-import filippelli.renato.techchallenge1adjt.domain.dto.EletronicResponse;
-import filippelli.renato.techchallenge1adjt.domain.service.exception.ControllerNotFoundException;
-import filippelli.renato.techchallenge1adjt.domain.dto.EletronicRequest;
-import filippelli.renato.techchallenge1adjt.domain.entity.Eletronic;
-import filippelli.renato.techchallenge1adjt.domain.repository.EletronicRepository;
+import filippelli.renato.techchallenge1adjt.dto.EletronicResponse;
+import filippelli.renato.techchallenge1adjt.service.exception.ControllerNotFoundException;
+import filippelli.renato.techchallenge1adjt.dto.EletronicRequest;
+import filippelli.renato.techchallenge1adjt.entity.Eletronic;
+import filippelli.renato.techchallenge1adjt.repository.EletronicRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

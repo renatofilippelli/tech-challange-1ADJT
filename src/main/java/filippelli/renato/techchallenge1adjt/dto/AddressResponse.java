@@ -1,6 +1,6 @@
-package filippelli.renato.techchallenge1adjt.domain.dto;
+package filippelli.renato.techchallenge1adjt.dto;
 
-import filippelli.renato.techchallenge1adjt.domain.entity.Address;
+import filippelli.renato.techchallenge1adjt.entity.Address;
 
 import java.util.UUID;
 

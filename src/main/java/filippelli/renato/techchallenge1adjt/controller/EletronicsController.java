@@ -1,9 +1,9 @@
-package filippelli.renato.techchallenge1adjt.domain.controller;
+package filippelli.renato.techchallenge1adjt.controller;
 
-import filippelli.renato.techchallenge1adjt.domain.dto.PersonRequest;
-import filippelli.renato.techchallenge1adjt.domain.dto.PersonResponse;
-import filippelli.renato.techchallenge1adjt.domain.service.PersonService;
-import filippelli.renato.techchallenge1adjt.domain.service.exception.DefaultError;
+import filippelli.renato.techchallenge1adjt.dto.EletronicRequest;
+import filippelli.renato.techchallenge1adjt.dto.EletronicResponse;
+import filippelli.renato.techchallenge1adjt.service.EletronicService;
+import filippelli.renato.techchallenge1adjt.service.exception.DefaultError;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -13,7 +13,12 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
@@ -21,14 +26,14 @@ import java.util.Collection;
 import java.util.UUID;
 
 @RestController
-@RequestMapping(value = "/persons", produces = {"application/json"})
-@Tag(name = "persons")
-public class PersonsController {
+@RequestMapping(value = "/eletronics", produces = {"application/json"})
+@Tag(name = "eletronics")
+public class EletronicsController {
 
     @Autowired
-    private PersonService service;
+    private EletronicService service;
 
-    @Operation(summary = "Create new person", method = "POST")
+    @Operation(summary = "Create new eletronic", method = "POST")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "201", description = "Created"),
             @ApiResponse(responseCode = "400", description = "Bad Request",
@@ -37,19 +42,19 @@ public class PersonsController {
                     content = {@Content(schema = @Schema(implementation = DefaultError.class))})
     })
     @PostMapping
-    public ResponseEntity<PersonResponse> save(@RequestBody @Valid PersonRequest dto) {
-        var personSaved = service.save(dto);
+    public ResponseEntity<EletronicResponse> save(@RequestBody @Valid EletronicRequest dto) {
+        var eletronicSaved = service.save(dto);
         URI uri = ServletUriComponentsBuilder
                 .fromCurrentRequest()
                 .path("/{id}")
-                .buildAndExpand((personSaved.getId()))
+                .buildAndExpand((eletronicSaved.getId()))
                 .toUri();
         return ResponseEntity
                 .created(uri)
-                .body(personSaved);
+                .body(eletronicSaved);
     }
 
-    @Operation(summary = "List all persons", method = "GET")
+    @Operation(summary = "List all eletronics", method = "GET")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "OK"),
             @ApiResponse(responseCode = "400", description = "Bad Request",
@@ -58,13 +63,13 @@ public class PersonsController {
                     content = {@Content(schema = @Schema(implementation = DefaultError.class))})
     })
     @GetMapping
-    public ResponseEntity<Collection<PersonResponse>> findAll() {
+    public ResponseEntity<Collection<EletronicResponse>> findAll() {
         return ResponseEntity
                 .ok()
                 .body(service.findAll());
     }
 
-    @Operation(summary = "List one person by ID", method = "GET")
+    @Operation(summary = "List one eletronic by ID", method = "GET")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "OK"),
             @ApiResponse(responseCode = "400", description = "Bad Request",
@@ -73,7 +78,7 @@ public class PersonsController {
                     content = {@Content(schema = @Schema(implementation = DefaultError.class))})
     })
     @GetMapping("/{id}")
-    public ResponseEntity<PersonResponse> findById(@PathVariable UUID id) {
+    public ResponseEntity<EletronicResponse> findById(@PathVariable UUID id) {
         return ResponseEntity
                 .ok()
                 .body(service.findById(id));

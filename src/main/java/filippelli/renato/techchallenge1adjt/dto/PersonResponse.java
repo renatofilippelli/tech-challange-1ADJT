@@ -1,6 +1,6 @@
-package filippelli.renato.techchallenge1adjt.domain.dto;
+package filippelli.renato.techchallenge1adjt.dto;
 
-import filippelli.renato.techchallenge1adjt.domain.entity.Person;
+import filippelli.renato.techchallenge1adjt.entity.Person;
 
 import java.time.LocalDate;
 import java.util.UUID;

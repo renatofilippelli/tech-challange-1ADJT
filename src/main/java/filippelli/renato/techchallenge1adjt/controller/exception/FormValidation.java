@@ -1,6 +1,6 @@
-package filippelli.renato.techchallenge1adjt.domain.controller.exception;
+package filippelli.renato.techchallenge1adjt.controller.exception;
 
-import filippelli.renato.techchallenge1adjt.domain.service.exception.DefaultError;
+import filippelli.renato.techchallenge1adjt.service.exception.DefaultError;
 
 import java.util.ArrayList;
 import java.util.List;

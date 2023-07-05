@@ -1,4 +1,4 @@
-package filippelli.renato.techchallenge1adjt.domain.entity;
+package filippelli.renato.techchallenge1adjt.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GenerationType;

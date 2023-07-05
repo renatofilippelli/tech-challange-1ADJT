@@ -1,4 +1,4 @@
-package filippelli.renato.techchallenge1adjt.domain.entity;
+package filippelli.renato.techchallenge1adjt.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GenerationType;
@@ -6,30 +6,31 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
+import java.time.LocalDate;
 import java.util.Objects;
 import java.util.UUID;
 
 @Entity
-@Table(name="eletronic")
-public class Eletronic {
+@Table(name = "person")
+public class Person {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
     private String name;
-    private String model;
-    private Integer power;
-    private Integer voltage;
+    private LocalDate birthdate;
+    private String gender;
+    private String kinship;
     private String otherRelevantInformation;
 
-    public Eletronic(){}
+    public Person() {}
 
-    public Eletronic(
-            String name, String model, Integer power, Integer voltage, String otherRelevantInformation) {
+    public Person(
+            String name, LocalDate birthdate, String gender, String kinship, String otherRelevantInformation) {
         this.id = UUID.randomUUID();
         this.name = name;
-        this.model = model;
-        this.power = power;
-        this.voltage = voltage;
+        this.birthdate = birthdate;
+        this.gender = gender;
+        this.kinship = kinship;
         this.otherRelevantInformation = otherRelevantInformation;
     }
 
@@ -37,8 +38,8 @@ public class Eletronic {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Eletronic that = (Eletronic) o;
-        return Objects.equals(id, that.id);
+        Person person = (Person) o;
+        return Objects.equals(id, person.id);
     }
 
     @Override
@@ -48,12 +49,12 @@ public class Eletronic {
 
     @Override
     public String toString() {
-        return "Eletronic{" +
+        return "Person{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", model='" + model + '\'' +
-                ", power=" + power +
-                ", voltage=" + voltage +
+                ", birthdate=" + birthdate +
+                ", gender='" + gender + '\'' +
+                ", kinship='" + kinship + '\'' +
                 ", otherRelevantInformation='" + otherRelevantInformation + '\'' +
                 '}';
     }
@@ -61,7 +62,6 @@ public class Eletronic {
     public UUID getId() {
         return id;
     }
-
 
     public String getName() {
         return name;
@@ -71,28 +71,28 @@ public class Eletronic {
         this.name = name;
     }
 
-    public String getModel() {
-        return model;
+    public LocalDate getBirthdate() {
+        return birthdate;
     }
 
-    public void setModel(String model) {
-        this.model = model;
+    public void setBirthdate(LocalDate birthdate) {
+        this.birthdate = birthdate;
     }
 
-    public Integer getPower() {
-        return power;
+    public String getGender() {
+        return gender;
     }
 
-    public void setPower(Integer power) {
-        this.power = power;
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 
-    public Integer getVoltage() {
-        return voltage;
+    public String getKinship() {
+        return kinship;
     }
 
-    public void setVoltage(Integer voltage) {
-        this.voltage = voltage;
+    public void setKinship(String kinship) {
+        this.kinship = kinship;
     }
 
     public String getOtherRelevantInformation() {

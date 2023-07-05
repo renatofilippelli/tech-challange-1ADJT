@@ -1,4 +1,4 @@
-package filippelli.renato.techchallenge1adjt.domain.dto;
+package filippelli.renato.techchallenge1adjt.dto;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;

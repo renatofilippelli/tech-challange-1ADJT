@@ -1,6 +1,7 @@
-package filippelli.renato.techchallenge1adjt.domain.dto;
+package filippelli.renato.techchallenge1adjt.dto;
 
-import filippelli.renato.techchallenge1adjt.domain.entity.Eletronic;
+import filippelli.renato.techchallenge1adjt.entity.Eletronic;
+
 import java.util.UUID;
 
 public class EletronicResponse {

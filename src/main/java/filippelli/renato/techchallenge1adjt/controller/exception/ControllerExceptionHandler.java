@@ -1,8 +1,8 @@
-package filippelli.renato.techchallenge1adjt.domain.controller.exception;
+package filippelli.renato.techchallenge1adjt.controller.exception;
 
-import filippelli.renato.techchallenge1adjt.domain.service.exception.ControllerNotFoundException;
-import filippelli.renato.techchallenge1adjt.domain.service.exception.DatabaseException;
-import filippelli.renato.techchallenge1adjt.domain.service.exception.DefaultError;
+import filippelli.renato.techchallenge1adjt.service.exception.ControllerNotFoundException;
+import filippelli.renato.techchallenge1adjt.service.exception.DatabaseException;
+import filippelli.renato.techchallenge1adjt.service.exception.DefaultError;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

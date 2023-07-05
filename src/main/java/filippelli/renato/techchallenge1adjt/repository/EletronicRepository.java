@@ -1,6 +1,6 @@
-package filippelli.renato.techchallenge1adjt.domain.repository;
+package filippelli.renato.techchallenge1adjt.repository;
 
-import filippelli.renato.techchallenge1adjt.domain.entity.Eletronic;
+import filippelli.renato.techchallenge1adjt.entity.Eletronic;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

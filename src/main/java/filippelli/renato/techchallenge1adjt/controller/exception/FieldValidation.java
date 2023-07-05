@@ -1,4 +1,4 @@
-package filippelli.renato.techchallenge1adjt.domain.controller.exception;
+package filippelli.renato.techchallenge1adjt.controller.exception;
 
 public class FieldValidation {
 
