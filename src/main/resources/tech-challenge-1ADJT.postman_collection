@@ -1,0 +1,214 @@
+{
+	"info": {
+		"_postman_id": "282ec82f-cbb0-476d-bb30-1ec69bc9487e",
+		"name": "tech-challenge-1ADJT",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5320581"
+	},
+	"item": [
+		{
+			"name": "addresses",
+			"item": [
+				{
+					"name": "save",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"number\": 666,\r\n   \"district\": \"Bairro\",\r\n   \"city\": \"Cidade\",\r\n   \"state\": \"Estado\",\r\n   \"street\": \"Rua\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/addresses",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"addresses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/addresses",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"addresses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/addresses/63ab4160-5fbd-4ec8-87d8-743f21c20fbc",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"addresses",
+								"63ab4160-5fbd-4ec8-87d8-743f21c20fbc"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "eletronics",
+			"item": [
+				{
+					"name": "save",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"model\": \"Modelo\",\r\n  \"name\": \"Nome\",\r\n  \"power\": 666,\r\n  \"voltage\": 1661,\r\n  \"otherRelevantInformation\": \"OutrasInfos importantes\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/eletronics",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"eletronics"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/eletronics/c8beccf3-7b6b-4df3-bea8-292863c66674",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"eletronics",
+								"c8beccf3-7b6b-4df3-bea8-292863c66674"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/eletronics",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"eletronics"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "persons",
+			"item": [
+				{
+					"name": "save",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Nome\",\r\n  \"birthdate\": \"2006-06-06\",\r\n  \"gender\": \"Genero\",\r\n  \"kinship\": \"Parentesco\",\r\n  \"otherRelevantInformation\": \"OutrasInfos importantes\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/persons",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"persons"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/persons",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"persons"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/persons/5982129f-f2fe-43da-8bda-8084b7213d33",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"persons",
+								"5982129f-f2fe-43da-8bda-8084b7213d33"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "host",
+			"value": "http://localhost:8080"
+		}
+	]
+}

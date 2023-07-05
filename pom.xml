@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>filippelli.renato</groupId>
-    <artifactId>tech-challange-1ADJT</artifactId>
+    <artifactId>tech-challenge-1ADJT</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>tech-challange-1ADJT</name>
     <description>tech-challange-1ADJT</description>
