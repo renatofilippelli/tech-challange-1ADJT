@@ -1,7 +1,6 @@
 # Tech-challenge-1ADJT
 
-A documentação das APIs desenvolvidas podem ser conferidas executando a aplicação e acessando o [swagger-ui](http://localhost:8080/swagger-ui/index.html)
-Ou via Postman[aqui](https://github.com/renatofilippelli/tech-challange-1ADJT/blob/main/src/main/resources/tech-challenge-1ADJT.postman_collection)
+A documentação das APIs desenvolvidas podem ser conferidas executando a aplicação e acessando o [swagger-ui](http://localhost:8080/swagger-ui/index.html) ou [Postman](https://github.com/renatofilippelli/tech-challange-1ADJT/blob/main/src/main/resources/tech-challenge-1ADJT.postman_collection)
 
 Projeto desenvolvido utilizando as tecnologias:
 * Maven
@@ -12,11 +11,11 @@ Projeto desenvolvido utilizando as tecnologias:
 * IntelliJ IDEA
 
 APIs:
-* [/eletronics](https://github.com/otavioprado/fiap-tech-challenge-eletro/blob/main/src/main/java/br/com/fiap/challengeeletro/controller/EletrodomesticosController.java)
-* [/addresses](https://github.com/otavioprado/fiap-tech-challenge-eletro/blob/main/src/main/java/br/com/fiap/challengeeletro/controller/EnderecosController.java)
-* [/persons](https://github.com/otavioprado/fiap-tech-challenge-eletro/blob/main/src/main/java/br/com/fiap/challengeeletro/controller/PessoasController.java)
+* [/eletronics](https://github.com/renatofilippelli/tech-challange-1ADJT/blob/main/src/main/java/filippelli/renato/techchallenge1adjt/controller/EletronicsController.java)
+* [/addresses](https://github.com/renatofilippelli/tech-challange-1ADJT/blob/main/src/main/java/filippelli/renato/techchallenge1adjt/controller/AddressesController.java)
+* [/persons](https://github.com/renatofilippelli/tech-challange-1ADJT/blob/main/src/main/java/filippelli/renato/techchallenge1adjt/controller/Eletronics/PersonsController.java)
 
 Projeto em três camadas:
-* [Controllers](https://github.com/otavioprado/fiap-tech-challenge-eletro/tree/main/src/main/java/br/com/fiap/challengeeletro/controller)
-* [Services](https://github.com/otavioprado/fiap-tech-challenge-eletro/tree/main/src/main/java/br/com/fiap/challengeeletro/service)
-* [Repositories](https://github.com/otavioprado/fiap-tech-challenge-eletro/tree/main/src/main/java/br/com/fiap/challengeeletro/repository)
+* [Controllers](https://github.com/renatofilippelli/tech-challange-1ADJT/tree/main/src/main/java/filippelli/renato/techchallenge1adjt/controller)
+* [Services](https://github.com/renatofilippelli/tech-challange-1ADJT/tree/main/src/main/java/filippelli/renato/techchallenge1adjt/service)
+* [Repositories](https://github.com/renatofilippelli/tech-challange-1ADJT/tree/main/src/main/java/filippelli/renato/techchallenge1adjt/repository)
